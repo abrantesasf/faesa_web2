@@ -93,6 +93,38 @@ exports.listarUnidadePorId = (req, res) => {
     });
 }
 
+// Listar todas as pessoas associadas a uma unidade específica:
+exports.listarPessoasDaUnidade = (req, res) => {
+    let id_unidade = req.params.unidade_id;
+
+    unidadesSchema.findById(id_unidade, (err, unidade) => {
+        if (err || !unidade) {
+            console.log(`Não foi encontrada unidade com o ID ${id_unidade}.`);
+            res.json({
+                status: "erro",
+                message: `Não foi encontrada unidade com o ID ${id_unidade}.`
+            });
+        } else {
+            pessoasSchema.find({unidade_id: id_unidade}, (err, pessoas) => {
+                if (err || !pessoas) {
+                    console.log("Não foram encontradas pessoas associadas a esta unidade.");
+                    res.json({
+                        status: "erro",
+                        message: "Não foram encontradas pessoas associadas a esta unidade."
+                    });
+                } else {
+                    console.log("Pessoas listadas.");
+                    res.json({
+                        status: "ok",
+                        message: `Pessoas associadas com a unidade: ${id_unidade}`,
+                        pessoas: pessoas
+                    });
+                }
+            });
+        }
+    });
+}
+
 // Faz a atualização de uma unidade (a busca é feita por ID):
 exports.atualizarUnidade = (req, res) => {
     let id_unidade = req.params.id;

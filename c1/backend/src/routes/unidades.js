@@ -22,6 +22,7 @@ router.post('/', unidadesController.adicionarUnidade);
 // Para realizar buscas por unidades:
 router.get('/', unidadesController.listarUnidades);
 router.get('/:id', unidadesController.listarUnidadePorId);
+router.get('/pessoas/:unidade_id', unidadesController.listarPessoasDaUnidade);
 
 // Para atualizar uma unidade:
 router.put('/:id', unidadesController.atualizarUnidade);
