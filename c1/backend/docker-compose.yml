@@ -1,0 +1,123 @@
+# Abrantes Araújo Silva Filho
+# abrantesasf@pm.me
+
+# Versão do arquivo compose: 3.8 (compatível com Docker Engine 19.03.0+)
+version: '3.8'
+
+# Configuração dos serviços
+services:
+
+  # Configuração do MongoDB
+  mongo:
+    image: mongo:latest
+    networks:
+      backnet:
+        aliases:
+          - mongo
+          - mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodata:/data/db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+
+  # Configuração do MongoExpress
+  mongo-express:
+    image: mongo-express:latest
+    depends_on:
+      - mongo
+    networks:
+      backnet:
+      frontnet:
+        aliases:
+          - mongo-express
+          - mongox
+    ports:
+      - 8081:8081
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_ENABLE_ADMIN : "true"
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+
+  # Configuração do PostgreSQL
+  postgres:
+    image: postgres:latest
+    networks:
+      backnet:
+        aliases:
+          - postgres
+          - db
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  
+  # Configuração do Adminer
+  adminer:
+    image: adminer:latest
+    networks:
+      backnet:
+        aliases:
+          - adminer
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+
+  # Configuração do Node.js
+  node:
+    image: node:14.16.0
+    depends_on:
+      - mongo
+        #- postgres
+    user: node
+    working_dir: /home/node/app/
+    networks:
+      backnet:
+      frontnet:
+    expose:
+      - "3005"
+    ports:
+      - "3005:3005"
+    volumes:
+      - "./:/home/node/app/"
+    command: "npm start"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NPM_CONFIG_LOGLEVEL=info
+      
+  # OPCIONAL: configuração do Portainer para gerenciamento
+  # dos containers via web, em sistemas Linux (se você está
+  # usando o Windows, terá que modificar as configurações
+  # abaixo, ou comentar tudo para não usar o Portainer).
+  portainer:
+    image: portainer/portainer-ce
+    networks:
+      frontnet:
+    ports:
+      - 9000:9000
+      - 8000:8000
+    command: -H unix:///var/run/docker.sock
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+# Configuração das redes:
+networks:
+  backnet:
+    driver: bridge
+  frontnet:
+    driver: bridge
+
+# Configuração dos volumes para persistência de dados:
+volumes:
+  mongodata:
+  postgresdata:
+  portainer_data:

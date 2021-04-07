@@ -1,0 +1,110 @@
+Este arquivo tem alguns exemplos de JSON que podem ser utilizados para
+o teste da API através do Postman (https://www.postman.com/) ou do
+Insomnia (https://insomnia.rest/).
+
+Obviamente os campos identificados com "id", nos exemplos abaixo, são
+meramente fictícios pois os IDs verdadeiros dependerão do número que o
+MongoDB realmente alocar para os registros.
+
+
+
+Exemplos de JSON para inserção de Unidades:
+===========================================
+{
+    "nome_unidade": "Hospital Santa Mônica",
+    "descricao_unidade": "Hospital",
+    "endereco_unidade": "Rod. do Sol, km 1, s/n. Praia de Itaparica, Vila Velha, ES, 29102-900.",
+    "telefone_unidade": "3320-3800",
+    "email_unidade": "atendimento@hospitalsantamonica.org",
+    "latlong_unidade": ""
+}
+{
+    "nome_unidade": "PA da Glória",
+    "descricao_unidade": "Pronto Atendimento da Glória",
+    "endereco_unidade": "Rua do Escorrega e Lá Vai Um, n.º 100. Glória, ES.",
+    "telefone_unidade": "1234-5678",
+    "email_unidade": "pa.gloria@saude.vilavelha.es.gov.br",
+    "latlong_unidade": ""
+}
+
+
+
+Exemplos de JSON para inserção de Pessoas:
+==========================================
+{
+    "nome_pessoa": "Abrantes Araújo Silva Filho",
+    "cpf_pessoa": "111.111.111-11",
+    "data_nascimento_pessoa": "1974/07/04",
+    "unidade_id": "606d285bab207ae32452da70",
+    "grupo_prioritario_pessoa": "true",
+    "endereco_pessoa": "Rua do Escorrega e Lá Vai Dois, n.º 200.",
+    "telefone_pessoa": "1234-5678",
+    "email_pessoa": "abrantes@naotefalo.nada"
+}
+{
+    "nome_pessoa": "Tomás Cardoso Araújo",
+    "cpf_pessoa": "222.222.222-22",
+    "data_nascimento_pessoa": "1905/07/28",
+    "unidade_id": "606d285bab207ae32452da70",
+    "grupo_prioritario_pessoa": "false",
+    "endereco_pessoa": "Rua do Escorrega e Lá Vai Três, n.º 300.",
+    "telefone_pessoa": "1111-2222",
+    "email_pessoa": "tomas@nao.te.falo.nada"
+}
+{
+    "nome_pessoa": "Elis Cardoso Araújo",
+    "cpf_pessoa": "333.333.333-33",
+    "data_nascimento_pessoa": "2015/09/25",
+    "unidade_id": "606d27dcab207ae32452da6f",
+    "grupo_prioritario_pessoa": "false",
+    "endereco_pessoa": "Rua do Escorrega e Lá Vai Quatro, n.º 400.",
+    "telefone_pessoa": "13333-4444",
+    "email_pessoa": "elis@nao.te.falo.nada"
+}
+
+
+
+Exemplos de JSON para inserção de Agendamento:
+==============================================
+{
+    "pessoa_id": "606d2a4b0d0a4de4eba7d9f2",
+    "unidade_id": "606d27dcab207ae32452da6f",
+    "data_hora_agendamento": "2021/04/10 08:00:00",
+    "necessidades_especiais_agendamento": "false",
+    "observacoes_agendamento": "Primeira consulta."
+}
+{
+    "pessoa_id": "606d2a4b0d0a4de4eba7d9f2",
+    "unidade_id": "606d285bab207ae32452da70",
+    "data_hora_agendamento": "2021/04/11 08:00:00",
+    "necessidades_especiais_agendamento": "false",
+    "observacoes_agendamento": "Segunda consulta."
+}
+{
+    "pessoa_id": "606d2bbd16696be5b8eba585",
+    "unidade_id": "606d27dcab207ae32452da6f",
+    "data_hora_agendamento": "2021/04/10 08:30:00",
+    "necessidades_especiais_agendamento": "true",
+    "observacoes_agendamento": "Primeira consulta."
+}
+{
+    "pessoa_id": "606d2bbd16696be5b8eba585",
+    "unidade_id": "606d285bab207ae32452da70",
+    "data_hora_agendamento": "2021/04/11 08:30:00",
+    "necessidades_especiais_agendamento": "true",
+    "observacoes_agendamento": "Segunda consulta."
+}
+{
+    "pessoa_id": "606d2c3316696be5b8eba586",
+    "unidade_id": "606d27dcab207ae32452da6f",
+    "data_hora_agendamento": "2021/04/10 09:00:00",
+    "necessidades_especiais_agendamento": "false",
+    "observacoes_agendamento": "Primeira consulta."
+}
+{
+    "pessoa_id": "606d2c3316696be5b8eba586",
+    "unidade_id": "606d285bab207ae32452da70",
+    "data_hora_agendamento": "2021/04/11 09:00:00",
+    "necessidades_especiais_agendamento": "false",
+    "observacoes_agendamento": "Segunda consulta."
+}

@@ -1,0 +1,14 @@
+{
+  "name": "projeto2",
+  "version": "1.0.0",
+  "description": "Segundo projeto da disciplina Web2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abrantes Araujo Silva Filho",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

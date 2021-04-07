@@ -1,0 +1,40 @@
+//----------------------------------------------------------------------------//
+// Configuração das rotas da API para o CRUD das Unidades. As rotas           //
+// utilizarão os métodos programados no Controller Pessoas.                              //
+//----------------------------------------------------------------------------//
+
+// Import do router:
+let router = require('express').Router();
+
+// Import dos controllers dos alunos
+const unidadesController = require('../controllers/unidades');
+
+
+
+
+//----------------------------------------------------------------------------//
+// CRUD de unidades: define quais controllers estão associados a cada rota.   //
+//----------------------------------------------------------------------------//
+
+// Para cadastrar uma nova unidade:
+router.post('/', unidadesController.adicionarUnidade);
+
+// Para realizar buscas por unidades:
+router.get('/', unidadesController.listarUnidades);
+router.get('/:id', unidadesController.listarUnidadePorId);
+
+// Para atualizar uma unidade:
+router.put('/:id', unidadesController.atualizarUnidade);
+
+// Para remover uma unidade:
+router.delete('/:id', unidadesController.removerUnidade);
+
+
+
+
+//----------------------------------------------------------------------------//
+// Possibilita que este route possa ser utilizado na aplicação.               //
+//----------------------------------------------------------------------------//
+
+// Exporta o router:
+module.exports = router;

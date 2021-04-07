@@ -1,0 +1,15 @@
+{
+  "name": "projeto1",
+  "version": "1.0.0",
+  "description": "Primeiro projeto da Web2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abrantes Araujo Silva Filho",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "faker": "^5.5.2"
+  }
+}
