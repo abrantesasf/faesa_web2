@@ -34,6 +34,8 @@ para rodar em Linux. Veja instruções a seguir.
 - Esse comando fará o download das imagens necessárias, construirá
   os containers (com as redes e volumes adequados) e, se tudo correr bem,
   você pode acessar a aplicação.
+- Em execuções posteriores basta fazer `docker-compose start` e
+  `docker-compose stop`.
 
 ## Como acessar a aplicação:
 Como esta aplicação é só a API de backend, todas as interações (GET, POST, PUT, DELETE)
