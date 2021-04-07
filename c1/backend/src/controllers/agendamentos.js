@@ -3,6 +3,7 @@
 //----------------------------------------------------------------------------//
 
 // Import do schema de agendamentos:
+const agendamentos = require('../models/agendamentos');
 const agendamentosSchema = require('../models/agendamentos');
 
 // Import do schema de pessoas:
@@ -125,6 +126,70 @@ exports.listarAgendamentoPorId = (req, res) => {
             });
         }
     });
+}
+
+// Listar agendamentos por pessoa (a busca é feita pelo ID da pessoa):
+exports.listarAgendamentoPorPessoa = (req, res) => {
+    let id_pessoa = req.params.pessoa_id;
+
+    pessoasSchema.findById(id_pessoa, (err, pessoa) => {
+        if (err || !pessoa) {
+            console.log("Não foi possível encontrar a pessoa com o ID informado.");
+            res.json({
+                status: "erro",
+                message: "Não foi possível encontrar a pessoa com o ID informado."
+            });
+        } else {
+            agendamentosSchema.find({pessoa_id: id_pessoa}, (err, agendamentos) => {
+                if (err || !agendamentos) {
+                    console.log("Não há agendamentos para essa pessoa.");
+                    res.json({
+                        status: "erro",
+                        message: "Não há agendamentos para essa pessoa."
+                    });
+                } else {
+                    console.log("Agendamentos listados.");
+                    res.json({
+                        status: "ok",
+                        message: `Agendamentos para a pessoa: ${id_pessoa}`,
+                        agendamentos: agendamentos
+                    });
+                }
+            });
+        }
+    })
+}
+
+// Listar agendamentos por unidade (a busca é feita pelo ID da unidade):
+exports.listarAgendamentoPorUnidade = (req, res) => {
+    let id_unidade = req.params.unidade_id;
+
+    unidadesSchema.findById(id_unidade, (err, unidade) => {
+        if (err || !unidade) {
+            console.log("Não foi possível encontrar a unidade com o ID informado.");
+            res.json({
+                status: "erro",
+                message: "Não foi possível encontrar a unidade com o ID informado."
+            });
+        } else {
+            agendamentosSchema.find({unidade_id: id_unidade}, (err, agendamentos) => {
+                if (err || !agendamentos) {
+                    console.log("Não há agendamentos para essa unidade.");
+                    res.json({
+                        status: "erro",
+                        message: "Não há agendamentos para essa unidade."
+                    });
+                } else {
+                    console.log("Agendamentos listados.");
+                    res.json({
+                        status: "ok",
+                        message: `Agendamentos para a unidade: ${id_unidade}`,
+                        agendamentos: agendamentos
+                    });
+                }
+            });
+        }
+    })
 }
 
 // Faz a atualização de um agendamento (a busca é feita por ID). Também

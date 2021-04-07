@@ -23,6 +23,8 @@ router.post('/', agendamentosController.adicionarAgendamento);
 // Para realizar buscas por agendamentos:
 router.get('/', agendamentosController.listarAgendamentos);
 router.get('/:id', agendamentosController.listarAgendamentoPorId);
+router.get('/pessoa/:pessoa_id', agendamentosController.listarAgendamentoPorPessoa);
+router.get('/unidade/:unidade_id', agendamentosController.listarAgendamentoPorUnidade);
 
 // Para atualizar um agendamento:
 router.put('/:id', agendamentosController.atualizarAgendamento);
