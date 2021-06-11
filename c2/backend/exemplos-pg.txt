@@ -21,7 +21,7 @@ Inserção de Pessoas
     "nome": "Abrantes Araújo Silva Filho",
     "cpf": "123.456.789-10",
     "data_nascimento": "1974-07-04 00:00:00.000+00",
-    "unidade_id": "8",
+    "unidade_id": "1",
     "grupo_prioritario": "true",
     "endereco": "Av. do Sol, 10",
     "email": "abrantesasf@gmail.com"
@@ -30,7 +30,7 @@ Inserção de Pessoas
     "nome": "Flávia Cristina Souza Cardoso Silva",
     "cpf": "987.654.321-01",
     "data_nascimento": "1974-07-01 00:00:00.000+00",
-    "unidade_id": "1",
+    "unidade_id": "2",
     "grupo_prioritario": "false",
     "endereco": "Av. do Sol, 10",
     "email": "flavinhacsc@gmail.com"
@@ -38,29 +38,29 @@ Inserção de Pessoas
 
 Inserção de agendamentos:
 {
-    "pessoa_id": "3",
-    "unidade_id": "8",
+    "pessoa_id": "1",
+    "unidade_id": "1",
     "data_hora": "2021-06-15 10:30:00.000+00",
     "necessidades_especiais": "true",
     "observacoes": ""
 }
 {
-    "pessoa_id": "2",
-    "unidade_id": "1",
+    "pessoa_id": "1",
+    "unidade_id": "2",
     "data_hora": "2021-06-16 10:30:00.000+00",
     "necessidades_especiais": "true",
     "observacoes": ""
 }
 {
     "pessoa_id": "2",
-    "unidade_id": "7",
+    "unidade_id": "1",
     "data_hora": "2021-06-16 15:00:00.000+00",
     "necessidades_especiais": "true",
     "observacoes": ""
 }
 {
-    "pessoa_id": "3",
-    "unidade_id": "1",
+    "pessoa_id": "2",
+    "unidade_id": "2",
     "data_hora": "2021-06-10 10:30:00.000+00",
     "necessidades_especiais": "true",
     "observacoes": ""
