@@ -1,0 +1,23 @@
+Comandos docker:
+
+# Listar imagens/containers
+docker image ls -a
+docker container ls -a
+
+# Remover container/imagem:
+docker container rm <id>
+docker image rm <id>
+docker container rm backend_api_1; docker image rm abrantesasf/devweb-api:v2;
+
+# Build isolado de uma imagem:
+docker build -t abrantesasf/devweb-api:v2 .
+
+# Compose:
+docker-compose up -d
+docker-compose start
+docker-compose stop
+docker-compose -f docker-compose-prod.yml up -d
+
+# Para Docker Hub:
+docker login
+docker push abrantesasf/devweb-api:v2

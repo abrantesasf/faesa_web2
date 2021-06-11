@@ -1,0 +1,24 @@
+{
+  "name": "DevWeb2",
+  "version": "1.0.0",
+  "description": "Backend do projeto da disciplina DevWeb2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install --only=production",
+    "dev": "NODE_ENV=development npx nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Abrantes Araujo Silva Filho",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "pg": "^8.6.0",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
