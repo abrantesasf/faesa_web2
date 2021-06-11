@@ -42,4 +42,4 @@ Como esta aplicação é só a API de backend, a maioria das interações (POST,
 
 Para as principais requisições GET, há um HTML com os links para as principais rotas da aplicação em:
 
-* http://<hostnome ou IP>:3005 (raiz da aplicação)
+* http://&lt;hostnome ou IP&gt;:3005 (raiz da aplicação)
