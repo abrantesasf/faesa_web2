@@ -1,8 +1,17 @@
-import MeuComponente from './components/MeuComponente/';
+import React from 'react';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import Checkout from './components/Checkout';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
-    <MeuComponente />
+    <>
+      <SignIn />
+      <SignUp />
+      <Checkout />
+      <Dashboard />
+    </>
   );
 }
 
