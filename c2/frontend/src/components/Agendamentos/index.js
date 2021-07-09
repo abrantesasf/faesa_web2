@@ -7,11 +7,27 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Titulo from '../Titulo';
+//import axios from 'axios';
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
   return { id, date, name, shipTo, paymentMethod, amount };
 }
+
+//const instance = axios.create({
+//  baseURL: 'http://devweb.abrantes.pro.br:3005/api',
+//  timeout: 1000,
+//  headers: {'X-Custom-Header': 'foobar'}
+//});
+
+//async function getAgendamentos() {
+//  try {
+//    const response = await axios.get('http://devweb.abrantes.pro.br:3005/api/agendamentos');
+//    console.log(response);
+//  } catch (error) {
+//    console.log(error);
+//  }
+//}
 
 const rows = [
   createData(0, '16 Mar, 2019', 'Elvis Presley', 'Tupelo, MS', 'VISA ⠀•••• 3719', 312.44),
@@ -33,17 +49,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Agendamentos() {
   const classes = useStyles();
+
+  //await getAgendamentos(); // deu xabu
+
   return (
     <React.Fragment>
-      <Titulo>Recent Orders</Titulo>
+      <Titulo>Agendamentos</Titulo>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Data</TableCell>
+            <TableCell>Nome</TableCell>
+            <TableCell>Unidade de Saúde</TableCell>
+            <TableCell>Confirmado?</TableCell>
+            <TableCell align="right">Observações</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
