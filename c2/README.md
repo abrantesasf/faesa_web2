@@ -1,7 +1,10 @@
-# Avaliação C2
+# Avaliação C3
 
 Este é meu repositório para o projeto de desenvolvimento da **Avaliação
-C2**.
+C3 da disciplina Dev Web II**.
+
+**ATENÇÃO**: o diretório está com o nome de c2, mas o conteúdo está
+atualizado para a avaliação C3.
 
 ## Pré-requisitos para rodar o projeto:
 - Você deve ter o Docker e o Docker Compose (versões recentes) instalados;
